@@ -1,0 +1,37 @@
+todoapp:
+  todoapp:
+    env:
+      mysqlHost: todoapp-mysql
+    image:
+      repository: mahan0227/todoapp
+      tag: "1.0"
+  ports:
+  - name: http
+    nodePort: 30000
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  replicas: 3
+  type: LoadBalancer
+kubernetesClusterDomain: cluster.local
+mysql:
+  mysql:
+    image:
+      repository: mysql
+      tag: "8.0"
+  ports:
+  - port: 3306
+    targetPort: 0
+  type: ClusterIP
+mysqlConfigMap:
+  mysqlDatabaseName: tododb
+  mysqlRootUser: root
+  mysqlServer: todoapp-mysql
+  mysqlUserUsername: todouser
+mysqlPass:
+  password: "Mahan@123"
+pvc:
+  mysqlPvClaim:
+    storageRequest: 20Gi
+  wpPvClaim:
+    storageRequest: 20Gi

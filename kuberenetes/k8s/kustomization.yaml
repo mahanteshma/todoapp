@@ -1,0 +1,5 @@
+resources:
+- mysql-config.yaml
+- mysql-secrets.yaml
+- mysql.yaml
+- todoapp.yaml

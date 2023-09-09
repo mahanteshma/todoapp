@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-config-map
+data:
+  mysql-server: todoapp-mysql
+  mysql-database-name: tododb
+  mysql-user-username: todouser
+  mysql-root-user: root
