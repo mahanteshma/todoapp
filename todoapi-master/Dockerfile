@@ -13,7 +13,7 @@ WORKDIR /app
  
 
 # Copy the Maven project definition (pom.xml) into the container
-COPY pom.xml .
+COPY todoapi-master/pom.xml .
 
  
 
