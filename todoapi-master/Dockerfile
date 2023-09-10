@@ -23,7 +23,7 @@ RUN mvn dependency:go-offline
  
 
 # Copy the application source code into the container
-COPY src ./src
+COPY todoapi-master/src ./src
 
  
 
