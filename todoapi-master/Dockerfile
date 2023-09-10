@@ -48,7 +48,7 @@ COPY --from=build /app/target/*.jar app.jar
  
 
 # Expose the port that the Spring Boot app will listen on
-EXPOSE 9992
+#EXPOSE 9992
 
  
 
