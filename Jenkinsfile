@@ -5,7 +5,9 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Replace your generated pipeline script here 
-                 checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/vijaynvb/todoapi.git']])
+                 //checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/mahanteshma/todoapp.git']])
+                 checkout scmGit(branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/mahanteshma/todoapp.git']])
+                // git branch: 'main', credentialsId: 'e7c9c153-3b9d-4a39-9873-d4ff6817717c',url: 'git@github.com:mahanteshma/todoapp.git'
                 echo 'successful checkout'
             }
         }
@@ -14,7 +16,7 @@ pipeline {
             steps {
                 script {
                     def imageTag = "mahan0227/todomyapi:2.0"
-                    docker.build(imageTag, '.')
+                    docker.build(imageTag, '-f todoapi-master/Dockerfile .')
                     echo 'successful Build Docker Image'
                 }
             }
